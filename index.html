@@ -13,7 +13,9 @@
      border-width: 5px; */
     }
   </style>
-
+  
+   <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
 
@@ -48,7 +50,7 @@
     imageCrystal.attr("src", imgOptions[i]);//"http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
     // Each imageCrystal will be given a data attribute called data-crystalValue.
     // This data attribute will be set equal to the array value.
-    imageCrystal.attr("data-crystalvalue", getRandonData());
+    imageCrystal.attr("data-crystalvalue", getRandomData);
     // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
     $("#crystals").append(imageCrystal);
   }
@@ -72,9 +74,9 @@
       $("#score").text("You lose!!");  
     }
   });
-  function getRandonData(){
-      var num = Math.ceiling(Math.random()*12);
-      console.log(num);
+  function getRandomData(){
+      var num = Math.floor(Math.random()*12)+1;
+      console.log("getRandomData" + num);
       return num;
   }
   function getTargetNumber(){
