@@ -22,6 +22,8 @@
 <div class="jumbotron" id="jbt">
     <h1 class="text-center">Mushroom Mix</h1>
       <h3 class="text-center"># of wins: <span id="wins"></span># of losses: <span id="losses"></span></h3>
+      <h3 class="text-center" id="targetDisp"></h3>
+      <!--  <h3 class="text-center">Number to Guess: <span id="numberToGuess"></span></h3> -->
     <h3 class="text-center"><div id="score"></div></h3>
    
 </div>
@@ -35,7 +37,7 @@
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
-   <h3 class="text-center">Number to Guess: <span id="numberToGuess"></span></h3>
+  
   </div>
   
 
@@ -49,7 +51,7 @@
     var i =0;
     var wins = losses = 0;
     var resetGame = false;
-
+    $("#score").text("Start Playing by clicking on a mushroom");
     playGame();
 
     $(document).click(function(){
@@ -72,10 +74,10 @@
         resetGame = false
         var targetNumber = getTargetNumber();
         //$("#numberToGuess").text(targetNumber);
-        var target = $("<h3>");
-        target.text("Num to guess: "+targetNumber)
-        $("#jbt").append(target);
-        $("#score").text("Start Playing by clicking on a mushroom");
+        var target = $("#targetDisp");
+        target.text("Number to guess: "+targetNumber)
+        //$("#jbt").append(target);
+        
         var counter = 0;
         var imgOptions = ["images/blue.jpg","images/green.jpg","images/red.jpg","images/yellow.jpg"]
         for (var i = 0; i < 4; i++) {
@@ -92,14 +94,14 @@
           // win-lose logic
           $("#score").text("New score: " + counter);
           if (counter === targetNumber) {
-            $("#score").text("You win");
+            $("#score").text("You win!! Start the next game by clicking on a mushroom.");
             wins++;
             $("#wins").text(wins);
     
             resetGame = true;
           }
           else if (counter >= targetNumber) {
-            $("#score").text("You lose!!");  
+            $("#score").text("You lose!! Try again");  
             resetGame =  true;
             losses++;
             $("#losses").text(losses);
