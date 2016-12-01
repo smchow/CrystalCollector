@@ -4,43 +4,47 @@
   <title>Game</title>
   
   <style type="text/css">
-    .crystalImage {
-      width: 150px;
-      height: 200px;
-      padding: 30px;
-     /*  border-style: solid;
-     border-color: black;
-     border-width: 5px; */
-    }
+
   </style>
-  
+  <link rel="stylesheet" type="text/css" href="css/style.css">
    <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
 <!-- Jumbotron for Title -->
-<div class="jumbotron" id="jbt">
+<div class="jumbotron1" id="jbt">
     <h1 class="text-center">Mushroom Medley</h1>
+       <div class="text-center"><button id="dispRules">Hide Rules</button></div>
       <h3 class="text-center"># of wins: <span id="wins">0</span> # of losses: <span id="losses">0</span></h3>
       <h3 class="text-center" id="targetDisp"></h3>
       <!--  <h3 class="text-center">Number to Guess: <span id="numberToGuess"></span></h3> -->
+    <!--  <button id="button1" class="btn btn-primary ">    </button> -->
+      
     <h3 class="text-center"><div id="score"></div></h3>
+
    
 </div>
 
-<div class="container">
-  <div class="row">
-  
-  <div class="row">
+    <div class="container">
+          <div class="row">         
+                  <div class="row"> 
+                      <div class="col-lg-2"></div>
+                      <div id="crystals"></div>
+                  </div>
+              
+                  <div id="rules" class="text-left" class="col-lg-6"> <h3>
+                        <ul>
+                          <li>You will be given a random number at the start of the game. </li>
+                          <li>By clicking on a mushroom you will add a certain number of points to your score. </li>
+                          <li> You win the game by matching the total score to the random number. </li>
+                          <li>You lose the game if you score goes above the random number.</li>
+                          <li>The value of each mushroom is hidden from you until you click on it.</li>
+                          <li>Each time when the game starts, the game will change the values of each crystal.</li>
+                        </ul></h3>
+                  </div>
+            </div>
+    </div>` 
 
-  <div class="col-lg-2"></div>
-  <div id="crystals">
-  
-  </div>
-  
-
-  </div>
-  </div>
   <!-- JAVASCRIPT  -->
   <!-- ========================================= -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -58,10 +62,20 @@
       playGame();
     }
     });
+
+    $("#dispRules").click(function(){
+      $("#rules").toggle();
+      console.log($("#dispRules").text());
+      if($("#dispRules").text()=="Show Rules"){
+        $("#dispRules").text("Hide Rules");
+      } else{
+         $("#dispRules").text("Show Rules");
+      }
+      
+      //$("#dispRules").
+
+    });
     
-   
-  
-  //$("#crystals").text("Time for a break!");
 
   function playGame(){
         resetGame = false
@@ -81,21 +95,22 @@
           counter += crystalValue;
           $("#score").text("Your score: " + counter);
           
-          // win-lose logic
-          
-          if (counter === targetNumber) {
-            $("#score").text("You win!! Start the next game by clicking on a mushroom.");
+          if (counter === targetNumber) {           
             wins++;
             $("#wins").text(wins);
-            resetGame = true;
+            updateStatus("You win!! Start the next game by clicking on a mushroom.");
           } else if (counter >= targetNumber) {
-            $("#score").text("You lose!! Try again");  
             losses++;
             $("#losses").text(losses);
-            resetGame =  true;
+            updateStatus("You lose!! Try again by clicking on a mushroom.");
           }
         });
     }
+
+  function updateStatus(msg){
+        $("#score").text(msg);  
+        resetGame =  true;
+  }
 
   function addImage(newImg){
     var imageCrystal = $("<img>");
@@ -114,6 +129,10 @@
   function getTargetNumber(){
     var num = Math.floor(Math.random()*101) +19;
     return num;
+  }
+
+  function toggleRules(){
+
   }
   </script>
 </body>

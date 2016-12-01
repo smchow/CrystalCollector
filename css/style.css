@@ -9,21 +9,21 @@ body{
 }
 h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 22px;
     color: #efeee7;
-    background-color: #4aaaa5;
+    //background-color: #4aaaa5;
     margin: 0;
-    padding-top: 20px;
+    //padding-top: 20px;
     padding-bottom: 20px;
     margin-left: 15px;
     width:100%;
     float: left;
-    margin-right: 100px;
+    //margin-right: 100px;
 }
-h2{
-	font-size: 24px;
-	padding-bottom: 5px;
-	padding-top: 10px;
+h3{
+	font-size: 16px;
+	//padding-bottom: 5px;
+	//padding-top: 10px;
 	color: #4aaaa5;
 }
 ul {
@@ -45,6 +45,27 @@ img {
         margin-right: 20px;
         margin-left: 20px;
       }
+
+.crystalImage {
+      width: 15%;
+      height: auto;
+      padding: 20px;
+
+    }
+    .crystals{
+        padding:0px 20px 90px 40px;
+    }
+
+ #rule{
+    //width :600px;
+    border-style: solid;
+    border-color:#4aaaa5;
+    border-width: 5px;
+    margin: 40px;
+    padding: 40px;
+    //color:pink;
+    //background: #4aaaa5;
+ }
 .detailImg {
 	height: 180px;
 	width: 180px;
@@ -53,22 +74,24 @@ img {
 	border-width: 5px;
 	margin: 20px;
 }
-.myBox{
-	background-color: #666666;
+#rules{
+	//background-color: #666666;
 	text-align: center;
-	padding: 15px;
-	margin:15px;
+	padding: 25px;
+	margin: 25px 25px 0px 50px;
 	border-style: solid;
 	border-color:#4aaaa5;
-	border-width: 5px 0px 0px 0px;
-	color: #efeee7;
+	border-width: 5px 0px 5px 0px;
+	//color: #efeee7;
 	width:100%;
-	height:450px;
+	//height:450px;
 }
  
 .myBtn{
 	margin:20px;
 }
+
+
 
 @media only screen and (max-width: 768px){
     /*body {
